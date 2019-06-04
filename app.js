@@ -4,6 +4,16 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
+var mongoose = require('mongoose'); // require in mongoose for connection to MongoDB
+mongoose.connect(`mongodb+srv://kmueller:066981408@cluster0-bu7ln.mongodb.net/test?retryWrites=true&w=majority`, 
+{
+  useNewUrlParser: true // Include this so we dont get deprescation warning
+});
+
+var db = mongoose.connection;
+db.on('error', err => console.error(err));
+db.once('open', () => console.log('Connection to mongoose successfull'));
+
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
