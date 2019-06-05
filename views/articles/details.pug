@@ -3,7 +3,7 @@ extends ../layout
 block content
     div(style="display: flex; justify-content: space-between;")
         a(href='/articles') Go Back
-        a(href=`/articles/${article._id}update`) Update Article
+        a(href=`/articles/${article._id}/update`) Update Article
         a(href=`/articles/${article._id}/delete`) Delete
     img(src=article.hero style=`width: 100%; max-height: 400px; object-fit: cover;`)
     h1= article.title
