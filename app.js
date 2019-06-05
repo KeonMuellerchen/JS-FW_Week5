@@ -14,9 +14,6 @@ var db = mongoose.connection;
 db.on('error', err => console.error(err));
 db.once('open', () => console.log('Connection to mongoose successfull'));
 
-var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
-
 var app = express();
 
 // view engine setup
@@ -29,8 +26,13 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+var indexRouter = require('./routes/index');
+var usersRouter = require('./routes/users');
+var articlesRouter = require('./routes/articles'); // Import articles router
+
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+app.use('/articles', articlesRouter); //everything at /artiles wiil be handled by my articles router
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

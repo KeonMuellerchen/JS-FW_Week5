@@ -1,0 +1,10 @@
+extends ../layout
+
+block content
+    a(href='/articles') Go Back
+    img(src=article.hero style=`width: 100%; max-height: 400px; object-fit: cover;`)
+    h1= article.title
+    h6= article.date
+    h6 #{article.authors.join(', ')}
+
+    p= article.content
