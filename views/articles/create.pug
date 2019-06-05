@@ -1,0 +1,13 @@
+extends ../layout
+
+block content
+    h1 Create an Article
+
+    form(method="POST")
+        input(name="title", placeholder="Title of Article")
+        input(name="hero", placeholder="Hero Image URL")
+        input(name="date", type="date")
+        input(name="authors", placeholder="Authors")
+        textarea(name="content", placeholder="Content of Article")
+
+        button(type="submit") Create Article

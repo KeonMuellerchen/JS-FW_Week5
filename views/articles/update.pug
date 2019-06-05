@@ -1,0 +1,13 @@
+extends ../layout
+
+block content
+    h1 Update - #{article.title}
+
+     form(method="POST")
+        input(name="title", value=article.title placeholder="Title of Article")
+        input(name="hero", value=article.hero placeholder="Hero Image URL")
+        input(name="date", value=article.date type="date")
+        input(name="authors", value=article.author placeholder="Authors")
+        textarea(name="content", placeholder="Content of Article")=article.content
+
+        button(type="submit") Update Article
